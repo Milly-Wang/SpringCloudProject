@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    config:
+#      uri: http://127.0.0.1:12000 #连接服务端地址
+      name: user #配置文件前缀
+      profile: dev #配置文件后缀
+      label: master #Git分支
+      discovery: #从Eureka发现SpringCloudConfig具体服务
+        enabled: true
+        service-id:  microservice-config
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8888/eureka
+  instance:
+    prefer-ip-address: true
